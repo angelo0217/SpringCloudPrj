@@ -14,11 +14,13 @@ public class ComputeClientHystrix implements ComputeClient {
 
     @Override
     public Object getUser() {
-        return null;
+        User user = new User();
+        user.setNamee("get user fail");
+        return user;
     }
 
     @Override
     public User user(User user) {
-        return null;
+        return user;
     }
 }

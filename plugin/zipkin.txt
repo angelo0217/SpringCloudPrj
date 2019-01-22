@@ -1,5 +1,6 @@
 java -jar zipkin-server-2.12.0-exec.jar
 http://localhost:9411/zipkin/
 
-
 https://github.com/openzipkin/zipkin/tree/master/zipkin-server
+
+http://localhost:9098/oauth/token?username=user&password=12345&grant_type=password&scope=all&client_id=admin&client_secret=123

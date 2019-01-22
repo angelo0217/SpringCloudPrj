@@ -11,6 +11,9 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:10000/eureka/
     register-with-eureka: false
     fetch-registry: false
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 4000
 
 spring:
   application:

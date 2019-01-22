@@ -1,5 +1,6 @@
 package com.consumer.config;
 
+import feign.Logger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -38,5 +39,9 @@ public class CustomMVCConfiguration extends WebMvcConfigurationSupport {
     public void configureContentNegotiation(
             ContentNegotiationConfigurer configurer) {
         configurer.favorPathExtension(false);
+    }
+    @Bean
+    Logger.Level feignLoggerLevel() {
+        return Logger.Level.FULL;
     }
 }

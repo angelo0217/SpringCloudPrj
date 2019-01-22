@@ -12,7 +12,7 @@
         <module>eureka</module>
         <module>provider</module>
         <module>consumer</module>
-        <module>zipkin</module>
+        <module>oauth</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

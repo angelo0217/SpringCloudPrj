@@ -1,0 +1,46 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: oauth-service
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 1.0
+#安全配置
+security:
+  #oauth2配置
+  oauth2:
+    resource:
+      filter-order: 3
+docker:
+  ip: 192.168.43.22
+
+#redis:
+#  host: ${docker.ip}
+#  port: 6379
+#  password:
+#  timeout: 2000
+#  jedis:
+#    pool:
+#      max-idle: 8
+#      min-idle: 0
+#      max-active: 8
+#      max-wait: -1
+#      test-on-borrow: true
+#      test-on-return: true
+#  oauth:
+#    database: 3
+
+eureka:
+  instance:
+    hostname: localhost
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 120
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka/
