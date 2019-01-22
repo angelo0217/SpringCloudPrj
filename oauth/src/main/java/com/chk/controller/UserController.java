@@ -19,10 +19,9 @@ public class UserController {
 
     @GetMapping("/user")
     public Principal getUser(Principal principal) {
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("=============get Oauth User start");
         System.out.println(principal.toString());
         System.out.println(principal.getName());
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>");
         return principal;
     }
 }
