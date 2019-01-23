@@ -1,6 +1,7 @@
 package com.consumer.client;
 
 
+import com.consumer.hystrix.ComputeClientFallBack;
 import com.consumer.hystrix.ComputeClientHystrix;
 import com.consumer.model.User;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -9,7 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "provider-service" , fallback = ComputeClientHystrix.class)// configuration = FeifnOauth2Interceptor.class)
+//@FeignClient(name = "provider-service" , fallback = ComputeClientHystrix.class)// configuration = FeifnOauth2Interceptor.class)
+@FeignClient(name = "provider-service" , fallbackFactory = ComputeClientFallBack.class)
 public interface ComputeClient {
     @GetMapping("/add")
     Integer add(@RequestParam(value = "a") Integer a, @RequestParam(value = "b") Integer b);
@@ -19,4 +21,5 @@ public interface ComputeClient {
 
     @PostMapping("/user")
     User user(@RequestBody User user);
+
 }

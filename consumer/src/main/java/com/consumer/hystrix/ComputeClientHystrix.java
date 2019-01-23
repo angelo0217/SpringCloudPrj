@@ -2,6 +2,8 @@ package com.consumer.hystrix;
 
 import com.consumer.client.ComputeClient;
 import com.consumer.model.User;
+import feign.hystrix.FallbackFactory;
+import io.micrometer.core.instrument.util.StringUtils;
 import org.springframework.stereotype.Component;
 
 @Component

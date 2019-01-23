@@ -1,5 +1,6 @@
 package com.consumer.security;
 
+import feign.Logger;
 import feign.RequestInterceptor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -22,15 +23,9 @@ import org.springframework.web.context.request.RequestContextListener;
 public class OAuth2ClientConfig {
 
     @Bean
-//    @ConfigurationProperties(prefix = "security.oauth2.client")//可以不用
     public ClientCredentialsResourceDetails clientCredentialsResourceDetails() {
 
         return new ClientCredentialsResourceDetails();
-    }
-
-    @Bean
-    public RequestInterceptor oauth2FeignRequestInterceptor() {
-        return new FeifnOauth2Interceptor();
     }
 
     @Bean
@@ -41,6 +36,16 @@ public class OAuth2ClientConfig {
     @Bean
     public RequestContextListener requestContextListener() {
         return new RequestContextListener();
+    }
+
+    @Bean
+    public RequestInterceptor oauth2FeignRequestInterceptor() {
+        return new FeifnOauth2Interceptor();
+    }
+
+    @Bean
+    Logger.Level feignLoggerLevel() {
+        return Logger.Level.FULL;
     }
 }
 
