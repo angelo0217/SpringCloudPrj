@@ -1,0 +1,43 @@
+server:
+  port: 10005
+spring:
+  application:
+    name: zuul-service
+eureka:
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+  client:
+    preferIpAddress: true
+    fetchRegistry: true
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka/
+ribbon:
+  eureka:
+    enabled: false
+zuul:
+  routes:
+    consumer:
+      path: /consumer/**
+      serviceId: feign-consumer
+      stripPrefix: false
+  host:
+    connect-timeout-millis: 3000
+    socket-timeout-millis: 3000
+
+ribbon:
+  ReadTimeout: 6000
+  ConnectTimeout: 6000
+#zuul:
+#  routes:
+#    api-b:
+#      path: /api-b/**
+#      serviceId: service-b
+#    api-c:
+#      path: /api-c/**
+#      serviceId: service-c
+
+#users:
+#  ribbon:
+#    listOfServers: example.com,google.com
+

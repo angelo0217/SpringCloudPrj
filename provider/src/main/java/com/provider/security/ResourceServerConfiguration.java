@@ -30,6 +30,6 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // 配置add访问控制，必须认证后才可以访问
-                .antMatchers("/getUser*").authenticated();
+                .antMatchers("/add*").authenticated();
     }
 }
