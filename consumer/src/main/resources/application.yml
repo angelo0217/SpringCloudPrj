@@ -6,7 +6,10 @@ server:
 management:
   server:
     port: 20002
-
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 spring:
   application:
     name: feign-consumer
