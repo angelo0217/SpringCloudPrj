@@ -2,6 +2,13 @@ server:
   port: 10001
   servlet:
     context-path:
+management:
+  server:
+    port: 20001
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 spring:
   application:
     name: provider-service
@@ -10,6 +17,8 @@ spring:
   sleuth:
     sampler:
       percentage: 1.0
+  profiles:
+    include: manager,security
 eureka:
   instance:
     hostname: localhost
@@ -28,3 +37,10 @@ security:
   oauth2:
     resource:
       user-info-uri: http://localhost:8888/user
+#      prefer-token-info: false
+#    client:
+#      id: admin
+#      client-secret: abc123
+#      access-token-uri: http://localhost:8888/oauth/token
+#      grant-type: password
+#      scope: all

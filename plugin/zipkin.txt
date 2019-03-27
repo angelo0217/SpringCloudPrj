@@ -3,4 +3,12 @@ http://localhost:9411/zipkin/
 
 https://github.com/openzipkin/zipkin/tree/master/zipkin-server
 
-http://localhost:9098/oauth/token?username=user&password=12345&grant_type=password&scope=all&client_id=admin&client_secret=123
+http://localhost:8888/oauth/token?username=user&password=12345&grant_type=password&scope=all&client_id=admin&client_secret=abc123
+
+正常
+http://localhost:10002/consumer/getUser
+
+http://localhost:10002/consumer/add?access_token=d26f131a-3d3d-4672-af95-13a48393e707
+
+走GateWay
+http://localhost:10005/consumer/add?access_token=d26f131a-3d3d-4672-af95-13a48393e707

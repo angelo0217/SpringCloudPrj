@@ -2,7 +2,13 @@ server:
   port: 10000
   servlet:
     context-path:
-
+management:
+  server:
+    port: 20000
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 eureka:
   instance:
     hostname: localhost
@@ -16,6 +22,10 @@ eureka:
     eviction-interval-timer-in-ms: 4000
 
 spring:
+#  boot:
+#    admin:
+#      client:
+#        url: http://localhost:1234
   application:
     name: eurka-server
   zipkin:
@@ -23,3 +33,5 @@ spring:
   sleuth:
     sampler:
       percentage: 1.0
+  profiles:
+    include: manager

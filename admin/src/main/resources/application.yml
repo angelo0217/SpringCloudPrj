@@ -1,0 +1,39 @@
+server:
+  port: 1234
+
+spring:
+  application:
+    name: admin-server
+
+eureka:
+  instance:
+    hostname: localhost
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 120
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka/
+
+#security2:
+#  user:
+#    name: "sa"
+#    password: "sa"
+management:
+  security:
+    enabled: false
+  endpoints:
+    health:
+      show-details: ALWAYS
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: DEBUG

@@ -3,6 +3,10 @@ server:
   servlet:
     context-path: /consumer
 
+management:
+  server:
+    port: 20002
+
 spring:
   application:
     name: feign-consumer
@@ -34,26 +38,6 @@ logging:
         web:
           servlet:
             DispatcherServlet: DEBUG
-
-management:
-  server:
-    port: 9001
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-
-security:
-  oauth2:
-    resource:
-      user-info-uri: http://localhost:8888/user
-#      prefer-token-info: false
-#    client:
-#      id: admin
-#      client-secret: abc123
-#      access-token-uri: http://localhost:8888/oauth/token
-#      grant-type: password
-#      scope: all
 ribbon:
   ReadTimeout: 3000
   ConnectTimeout: 3000
@@ -66,3 +50,14 @@ hystrix:
           strategy: SEMAPHORE
           thread:
             timeoutInMilliseconds: 5000
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8888/user
+#      prefer-token-info: false
+#    client:
+#      id: admin
+#      client-secret: abc123
+#      access-token-uri: http://localhost:8888/oauth/token
+#      grant-type: password
+#      scope: all
