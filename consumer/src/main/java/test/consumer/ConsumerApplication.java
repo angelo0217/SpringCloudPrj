@@ -15,7 +15,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableCircuitBreaker
 @EnableHystrixDashboard
 @EnableHystrix
-@SpringBootApplication(scanBasePackages = {"test.consumer","test.common"})
+@SpringBootApplication
 public class ConsumerApplication {
 
     public static void main(String[] args) {
