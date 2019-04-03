@@ -17,8 +17,6 @@ spring:
   sleuth:
     sampler:
       percentage: 1.0
-  profiles:
-    include: manager,security
 eureka:
   instance:
     hostname: localhost

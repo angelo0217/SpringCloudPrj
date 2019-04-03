@@ -12,7 +12,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @since 1.0
  */
 @EnableDiscoveryClient
-@SpringBootApplication(scanBasePackages = {"test.provider","test.common.config.security.resource"})
+@SpringBootApplication
 public class ProviderApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProviderApplication.class, args);
